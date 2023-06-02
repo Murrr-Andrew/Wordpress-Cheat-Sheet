@@ -40,11 +40,12 @@ function hotels_register_post_type() {
         'rewrite'            => array( 'slug' => 'hotels' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
-        'hierarchical'       => false,
+        'hierarchical'       => true,
         'menu_position'      => null,
         'show_in_rest'       => true,
         'menu_icon'          => 'dashicons-building',
-        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'taxonomies'         => array( 'hotels_category' )
     );
 
     register_post_type( 'hotels', $args );
