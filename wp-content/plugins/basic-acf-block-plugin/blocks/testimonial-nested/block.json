@@ -1,0 +1,19 @@
+{
+    "name": "acf/testimonial-nested",
+    "title": "Testimonial nested",
+    "description": "A custom testimonial nested block.",
+    "style": [ "file:../../assets/css/testimonial.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["testimonial", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "../../views/testimonial-nested.php"
+    },
+    "align": "full",
+    "supports": {
+        "anchor": true,
+        "customClassName": true,
+        "jsx": true
+    }
+}

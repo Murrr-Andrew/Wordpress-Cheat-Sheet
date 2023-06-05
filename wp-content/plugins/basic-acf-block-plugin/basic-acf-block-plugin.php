@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || class_exists( 'acf' ) ) {
     function register_acf_blocks() {
         register_block_type( __DIR__ . '/blocks/testimonial' );
+        register_block_type( __DIR__ . '/blocks/testimonial-nested' );
     }
     add_action( 'init', 'register_acf_blocks' );
 } else {
