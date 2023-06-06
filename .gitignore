@@ -13,6 +13,7 @@ wp-content/plugins/*
 !wp-content/plugins/basic-cpt-plugin/
 !wp-content/plugins/basic-ct-plugin/
 !wp-content/plugins/basic-acf-block-plugin/
+!wp-content/plugins/basic-cron-plugin/
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)

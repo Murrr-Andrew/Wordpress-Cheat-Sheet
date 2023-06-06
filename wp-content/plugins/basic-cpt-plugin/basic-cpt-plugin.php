@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-function hotels_register_post_type() {
+function hotels_register_post_type() 
+{
     $labels = array(
         'name'               => 'Hotels',
         'singular_name'      => 'Hotel',

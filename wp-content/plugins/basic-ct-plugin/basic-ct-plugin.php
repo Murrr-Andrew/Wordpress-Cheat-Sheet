@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-function create_hotels_category_taxonomy() {
+function create_hotels_category_taxonomy() 
+{
     $labels = array(
         'name'                       => 'Hotels Categories',
         'singular_name'              => 'Hotels Category',
