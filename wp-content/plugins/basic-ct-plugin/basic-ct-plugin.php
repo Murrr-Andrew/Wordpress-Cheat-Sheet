@@ -46,4 +46,5 @@ function create_hotels_category_taxonomy()
 
     register_taxonomy( 'hotels_category', array( 'hotels' ), $args );  // Change 'hotels' to your desired post type
 }
+
 add_action( 'init', 'create_hotels_category_taxonomy' );

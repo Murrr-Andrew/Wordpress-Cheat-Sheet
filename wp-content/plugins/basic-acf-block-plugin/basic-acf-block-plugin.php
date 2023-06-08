@@ -18,12 +18,14 @@ if ( in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plug
         register_block_type( __DIR__ . '/blocks/testimonial' );
         register_block_type( __DIR__ . '/blocks/testimonial-nested' );
     }
+
     add_action( 'init', 'register_acf_blocks' );
 } else {
     function basic_acf_block_deactivate()
     {
         deactivate_plugins(plugin_basename(__FILE__));
-        wp_die('The Basic ACF Block plugin has been deactivated because it requires the Advanced Custom Fields (ACF) plugin to be installed and activated.');
+        wp_die( 'The Basic ACF Block plugin has been deactivated because it requires the Advanced Custom Fields (ACF) plugin to be installed and activated.' );
     }
-    add_action('admin_init', 'basic_acf_block_deactivate');
+
+    add_action( 'admin_init', 'basic_acf_block_deactivate' );
 }

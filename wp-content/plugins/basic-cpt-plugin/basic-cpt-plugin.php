@@ -51,4 +51,5 @@ function hotels_register_post_type()
 
     register_post_type( 'hotels', $args );
 }
+
 add_action( 'init', 'hotels_register_post_type' );

@@ -59,6 +59,7 @@ if ( in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plug
         if ( !wp_next_scheduled( 'update_custom_field_cron' ) ) {
             wp_schedule_event( time(), 'hourly', 'update_custom_field_cron' );
         }
+
         add_action('update_custom_field_cron', 'update_custom_field_value');
     }
 
@@ -74,6 +75,7 @@ if ( in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plug
             schedule_basic_cron();
         }
     }
+
     add_action('plugins_loaded', 'set_up_plugin_settings');
 } else {
     function basic_cron_deactivate()
@@ -82,6 +84,7 @@ if ( in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plug
         deactivate_plugins(plugin_basename(__FILE__));
         wp_die('The Basic Cron plugin has been deactivated because it requires the Advanced Custom Fields (ACF) plugin to be installed and activated.');
     }
+
     add_action('admin_init', 'basic_cron_deactivate');
 }
 
