@@ -22,5 +22,3 @@ function basicShortcodesInit()
 }
 
 add_action('plugins_loaded', 'basicShortcodesInit');
-
-// define('HWRDP_SDK_DIR', plugin_dir_path(__FILE__));
