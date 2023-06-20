@@ -76,7 +76,7 @@ if ( in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plug
         }
     }
 
-    add_action('plugins_loaded', 'set_up_plugin_settings');
+    add_action( 'plugins_loaded', 'set_up_plugin_settings' );
 } else {
     function basic_cron_deactivate()
     {
@@ -85,7 +85,7 @@ if ( in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plug
         wp_die('The Basic Cron plugin has been deactivated because it requires the Advanced Custom Fields (ACF) plugin to be installed and activated.');
     }
 
-    add_action('admin_init', 'basic_cron_deactivate');
+    add_action( 'admin_init', 'basic_cron_deactivate' );
 }
 
 register_deactivation_hook(__FILE__, 'remove_cron_job');

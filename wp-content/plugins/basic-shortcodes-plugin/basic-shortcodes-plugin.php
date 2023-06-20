@@ -21,4 +21,4 @@ function basicShortcodesInit()
     BasicShortcodes\Shortcodes::init();
 }
 
-add_action('plugins_loaded', 'basicShortcodesInit');
+add_action( 'plugins_loaded', 'basicShortcodesInit' );

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define('BA_PLUGIN_PATH', untrailingslashit(plugin_dir_url(__FILE__)));
+define( 'BA_PLUGIN_PATH', untrailingslashit(plugin_dir_url(__FILE__)) );
 
 if (in_array('advanced-custom-fields-pro/acf.php', apply_filters('active_plugins', get_option('active_plugins'))) || class_exists('acf')) {
     require_once __DIR__ . '/classes/autoload.php';
@@ -23,9 +23,9 @@ if (in_array('advanced-custom-fields-pro/acf.php', apply_filters('active_plugins
         BasicApi\ResourceApi::init();
     }
 
-    add_action('plugins_loaded', 'basic_api_plugin_init');
+    add_action( 'plugins_loaded', 'basic_api_plugin_init' );
 } else {
-    add_action('admin_init', 'basic_api_plugin_deactivate');
+    add_action( 'admin_init', 'basic_api_plugin_deactivate' );
 
     function basic_api_plugin_deactivate()
     {
