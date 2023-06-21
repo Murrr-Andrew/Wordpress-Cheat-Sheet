@@ -16,4 +16,5 @@ require_once __DIR__ . '/classes/autoload.php';
 
 register_activation_hook( __FILE__, 'BasicAHF\ActionHookFilter::plugin_activation' );
 
-add_action( 'plugins_loaded', 'BasicAHF\ActionHookFilter::init' );
+add_action( 'plugins_loaded', 'BasicAHF\ActionHookFilter::init_plugin' );
+add_action( 'init', 'BasicAHF\ActionHookFilter::init' );
