@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, ColorPalette, InspectorControls } from '@wordpress/block-editor';
 import { TextControl } from '@wordpress/components';
 
 /**
@@ -31,12 +31,44 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-    const blockProps = useBlockProps();
+	const onChangeBGColor = ( hexColor ) => {
+		setAttributes( { bg_color: hexColor } );
+	};
+
+	const onChangeTextColor = ( hexColor ) => {
+		setAttributes( { text_color: hexColor } );
+	};
+
     return (
-        <TextControl
-            { ...blockProps }
-            value={ attributes.message }
-            onChange={ ( val ) => setAttributes( { message: val } ) }
-        />
+		<div { ...useBlockProps() }>
+			<InspectorControls key="setting">
+				<div id="basic-block-controls">
+					<fieldset>
+						<legend className="blocks-base-control__label">
+							{ __( 'Background color', 'basic-block' ) }
+						</legend>
+						<ColorPalette
+							onChange={ onChangeBGColor }
+						/>
+					</fieldset>
+					<fieldset>
+						<legend className="blocks-base-control__label">
+							{ __( 'Text color', 'basic-block' ) }
+						</legend>
+						<ColorPalette
+							onChange={ onChangeTextColor }
+						/>
+					</fieldset>
+				</div>
+			</InspectorControls>
+			<TextControl
+                    value={ attributes.message }
+                    onChange={ ( val ) => setAttributes( { message: val } ) }
+                    style={ {
+                        backgroundColor: attributes.bg_color,
+                        color: attributes.text_color,
+                    } }
+                />
+		</div>
     );
 }

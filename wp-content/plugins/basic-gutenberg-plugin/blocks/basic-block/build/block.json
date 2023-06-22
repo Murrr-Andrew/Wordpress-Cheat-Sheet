@@ -20,6 +20,14 @@
       "source": "text",
       "selector": "div",
       "default": ""
+    },
+    "bg_color": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "text_color": {
+      "type": "string",
+      "default": "#ffffff"
     }
   }
 }
