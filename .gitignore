@@ -18,6 +18,7 @@ wp-content/plugins/*
 !wp-content/plugins/basic-api-plugin/
 !wp-content/plugins/basic-action-hook-filter-plugin/
 !wp-content/plugins/basic-gutenberg-plugin/
+!wp-content/plugins/basic-slider-plugin/
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
