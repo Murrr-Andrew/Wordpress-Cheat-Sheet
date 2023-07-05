@@ -1,0 +1,86 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/basic-slider",
+  "version": "0.1.0",
+  "title": "Basic Slider",
+  "category": "widgets",
+  "icon": "images-alt",
+  "description": "Example block written with ESNext standard and JSX support – build step required.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "basic-slider",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "speed": {
+      "type": "number",
+      "default": 300
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "delay": {
+      "type": "number",
+      "default": 5000
+    },
+    "slidesPerViewDesktop": {
+      "type": "number",
+      "default": 1
+    },
+    "slidesPerViewTablet": {
+      "type": "number",
+      "default": 1
+    },
+    "slidesPerViewMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "dotsDesktop": {
+      "type": "boolean",
+      "default": true
+    },
+    "dotsTablet": {
+      "type": "boolean",
+      "default": true
+    },
+    "dotsMobile": {
+      "type": "boolean",
+      "default": true
+    },
+    "spaceBetweenDesktop": {
+      "type": "number",
+      "default": 0
+    },
+    "spaceBetweenTablet": {
+      "type": "number",
+      "default": 0
+    },
+    "spaceBetweenMobile": {
+      "type": "number",
+      "default": 0
+    },
+    "arrowsDesktop": {
+      "type": "boolean",
+      "default": true
+    },
+    "arrowsTablet": {
+      "type": "boolean",
+      "default": true
+    },
+    "arrowsMobile": {
+      "type": "boolean",
+      "default": true
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}
