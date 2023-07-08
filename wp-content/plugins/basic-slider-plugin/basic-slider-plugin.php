@@ -12,9 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-if ( ! defined( 'BSP_DIR' ) ) {
-    define( 'BSP_DIR', plugin_dir_path( __FILE__ ) );
-}
+define( 'BSP_URL', plugins_url('', __FILE__) );
+define( 'BSP_PATH', plugin_dir_path(__FILE__) );
 
 require_once __DIR__ . '/classes/autoload.php';
 

@@ -20,7 +20,14 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_basic_slider_block_init() {
+function create_block_basic_slider_block_init() 
+{
+	// Scripts & Styles
+	wp_register_script( 'swiper-script', BSP_URL . '/assets/vendor/swiper.js', array(), null );
+	wp_register_style( 'swiper-style', BSP_URL . '/assets/vendor/swiper.css' );
+
+	// Blocks
 	register_block_type( __DIR__ . '/build' );
 }
+
 add_action( 'init', 'create_block_basic_slider_block_init' );

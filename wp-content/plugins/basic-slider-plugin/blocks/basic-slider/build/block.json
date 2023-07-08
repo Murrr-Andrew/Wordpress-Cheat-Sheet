@@ -13,7 +13,14 @@
   "textdomain": "basic-slider",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css",
+  "style": [
+    "swiper-style",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "swiper-script",
+    "file:./view.js"
+  ],
   "attributes": {
     "speed": {
       "type": "number",
@@ -78,9 +85,6 @@
     "arrowsMobile": {
       "type": "boolean",
       "default": true
-    },
-    "message": {
-      "type": "string"
     }
   }
 }

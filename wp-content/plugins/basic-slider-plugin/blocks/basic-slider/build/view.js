@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll(".swiper-container").forEach(((e,n)=>{const t=JSON.parse(e.dataset.config);new Swiper(e,t)}))}));

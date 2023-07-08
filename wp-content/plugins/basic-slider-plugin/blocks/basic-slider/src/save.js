@@ -22,10 +22,32 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save( { attributes } ) {
+	const config = {
+		'speed': attributes.speed,
+		'loop': attributes.loop,
+		'autoplay': attributes.autoplay,
+		'delay': attributes.delay,
+		'slidesPerView': attributes.slidesPerViewMobile,
+		'spaceBetween': attributes.spaceBetweenMobile,
+		'lazyLoading': true,
+		'breakpoints': {
+			768: {
+				'slidesPerView': attributes.slidesPerViewTablet,
+				'spaceBetween': attributes.spaceBetweenTablet
+			},
+			1200: {
+				'slidesPerView': attributes.slidesPerViewDesktop,
+				'spaceBetween': attributes.spaceBetweenDesktop
+			}
+		}
+	}
+
 	return (
-		<div { ...useBlockProps.save() }>
-			<InnerBlocks.Content/>
+		<div { ...useBlockProps.save() } className='swiper swiper-container' data-config={JSON.stringify(config)}>
+			<div className='swiper-wrapper'>
+				<InnerBlocks.Content/>
+			</div>
 		</div>
 	);
 }
