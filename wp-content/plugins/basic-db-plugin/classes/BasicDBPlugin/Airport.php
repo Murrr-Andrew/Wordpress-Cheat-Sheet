@@ -8,7 +8,6 @@ class Airport
     {
         add_action( 'wp_ajax_airport_action', [__CLASS__, 'airport_action_callback'] );
         add_action( 'wp_ajax_nopriv_airport_action', [__CLASS__, 'airport_action_callback'] );
-        add_action( 'wp_enqueue_scripts', [__CLASS__, 'plugin_scripts'] );
     }
 
     public static function plugin_scripts()
@@ -16,8 +15,8 @@ class Airport
         wp_enqueue_script( 'basic_db_plugin_script', BDBP_URL . '/assets/js/script.js' , array(), null );
 
         wp_localize_script( 'basic_db_plugin_script', 'bdbpData', [
-            'ajax_url' => admin_url( 'admin-ajax.php' ),
-            'ajax_nonce' => wp_create_nonce( 'bdbp_ajax_nonce' ),
+            'ajax_url'      => admin_url( 'admin-ajax.php' ),
+            'ajax_nonce'    => wp_create_nonce( 'bdbp_ajax_nonce' ),
         ]);
     }
 

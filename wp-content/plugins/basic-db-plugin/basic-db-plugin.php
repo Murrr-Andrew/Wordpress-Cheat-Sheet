@@ -17,6 +17,8 @@ define( 'BDBP_PATH', plugin_dir_path(__FILE__) );
 
 require_once __DIR__ . '/classes/autoload.php';
 
-add_action( 'plugins_loaded', 'BasicDBPlugin\Airport::init' );
+add_action( 'init', 'BasicDBPlugin\Airport::init' );
+
+add_action( 'wp_enqueue_scripts', 'BasicDBPlugin\Airport::plugin_scripts' );
 
 register_activation_hook( __FILE__, ['BasicDBPlugin\Airport', 'plugin_activation'] );
