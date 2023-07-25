@@ -16,36 +16,61 @@ class BasicRestApiPlugin
 {    
     public function __construct() 
     {
-        add_action( 'rest_api_init', array($this, 'register_routes') );
+        add_action( 'rest_api_init', array( $this, 'register_routes' ) );
     }
 
     public function register_routes() 
     {
-        register_rest_route('myplugin/v1', '/posts', array(
+        register_rest_route( 'myplugin/v1', '/posts', array(
             array(
                 'methods' => 'GET',
-                'callback' => array($this, 'get_all_posts'),
+                'callback' => array( $this, 'get_all_posts' ),
+                'permission_callback' => array( $this, 'validate_jwt_token' )
             ),
             array(
                 'methods' => 'POST',
-                'callback' => array($this, 'create_post'),
+                'callback' => array( $this, 'create_post' ),
+                'permission_callback' => array( $this, 'validate_jwt_token' )
             ),
-        ));
+        ) );
 
         register_rest_route('myplugin/v1', '/posts/(?P<id>\d+)', array(
             array(
                 'methods' => 'GET',
-                'callback' => array($this, 'get_post'),
+                'callback' => array( $this, 'get_post' ),
+                'permission_callback' => array( $this, 'validate_jwt_token' )
             ),
             array(
                 'methods' => 'PUT',
-                'callback' => array($this, 'update_post'),
+                'callback' => array( $this, 'update_post' ),
+                'permission_callback' => array( $this, 'validate_jwt_token' )
             ),
             array(
                 'methods' => 'DELETE',
-                'callback' => array($this, 'delete_post'),
+                'callback' => array( $this, 'delete_post' ),
+                'permission_callback' => array( $this, 'validate_jwt_token' )
             ),
         ));
+    }
+
+    public function validate_jwt_token( $request )
+    {
+        $auth_header = $request->get_header( 'Authorization' );
+        if ( empty($auth_header) ) {
+            return new WP_Error( 'rest_forbidden', 'Authorization header not found.', array( 'status' => 401 ) );
+        }
+
+        if ( preg_match( '/Bearer\s+(.*)/', $auth_header, $matches ) ) {
+            $token = $matches[1];
+        } else {
+            return new WP_Error( 'rest_forbidden', 'Authorization header is not a valid Bearer token.', array( 'status' => 401 ) );
+        }
+
+        if ( function_exists( 'jwt_auth_validate_token' ) && !jwt_auth_validate_token( $token ) ) {
+            return new WP_Error( 'rest_forbidden', 'Invalid JWT token.', array( 'status' => 401 ) );
+        }
+
+        return true;
     }
 
     public function get_all_posts( $request ) 
@@ -116,7 +141,8 @@ class BasicRestApiPlugin
         return rest_ensure_response( $post );
     }
 
-    public function delete_post( $request ) {
+    public function delete_post( $request ) 
+    {
         $post_id = $request['id'];
 
         $deleted = wp_delete_post( $post_id, true );
