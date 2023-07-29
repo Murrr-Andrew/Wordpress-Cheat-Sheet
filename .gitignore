@@ -22,6 +22,8 @@ wp-content/plugins/*
 !wp-content/plugins/basic-db-plugin/
 !wp-content/plugins/basic-rest-plugin/
 !wp-content/plugins/basic-context-plugin/
+!wp-content/plugins/basic_transient_plugin/
+!wp-content/plugins/basic-csv-plugin/
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
