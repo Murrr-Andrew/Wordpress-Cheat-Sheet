@@ -21,6 +21,7 @@ wp-content/plugins/*
 !wp-content/plugins/basic-slider-plugin/
 !wp-content/plugins/basic-db-plugin/
 !wp-content/plugins/basic-rest-plugin/
+!wp-content/plugins/basic-context-plugin/
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
