@@ -1,0 +1,17 @@
+/* Custom FAQ block styles */
+.custom-faq-block {
+    margin: 20px 0;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.faq-answer {
+    margin-top: 10px;
+}

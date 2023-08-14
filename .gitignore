@@ -24,6 +24,7 @@ wp-content/plugins/*
 !wp-content/plugins/basic-context-plugin/
 !wp-content/plugins/basic_transient_plugin/
 !wp-content/plugins/basic-csv-plugin/
+!wp-content/plugins/custom_elementor_faq_block/
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
